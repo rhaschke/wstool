@@ -579,7 +579,7 @@ def cmd_find_unmanaged_repos(config):
     managed_paths = [os.path.join(path, e.get_local_name()) for e in elements]
     unmanaged_paths = []
     scm_clients = {SvnClient: 'svn', GitClient: 'git', BzrClient:'bzr', HgClient:'hg'}
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in os.walk(path, followlinks=True):
         if root in managed_paths:
             # remove it from the walk if it's managed
             del dirs[:]
