@@ -1327,8 +1327,11 @@ $ %(prog)s info --only=path,cur_uri,cur_revision robot_model geometry
             usage=usage,
             description=__MULTIPRO_CMD_DICT__["scrape"],
             epilog="See: http://www.ros.org/wiki/rosinstall for details\n")
-        parser.add_option("-y", "--confirm", dest="confirm", default='',
+        parser.add_option("-y", "--confirm", dest="confirm", default=False,
                           help="Do not ask for confirmation",
+                          action="store_true")
+        parser.add_option("-v", "--versioned", dest="versioned", default=False,
+                          help="Remember current version label",
                           action="store_true")
         # -t option required here for help but used one layer above, see cli_common
         parser.add_option(
@@ -1357,5 +1360,8 @@ $ %(prog)s info --only=path,cur_uri,cur_revision robot_model geometry
                 args = [elem_abs_path, elem['scm'], elem['uri']]
                 if (options.confirm):
                     args.append('-y')
+                if (options.versioned and elem['version']):
+                    args.append('-v')
+                    args.append(elem['version'])
                 self.cmd_set(target_path, args)
         return 0

@@ -297,7 +297,7 @@ def get_info_table(basepath, entries, data_only=False, reverse=False,
     ])
     # table design
     if unmanaged:
-        selected_headers = ['localname', 'scm', 'uri']
+        selected_headers = ['localname', 'scm', 'uri', 'version']
     elif selected_headers is None:
         selected_headers = headers.keys()
     # validate selected_headers

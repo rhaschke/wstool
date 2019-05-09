@@ -570,6 +570,7 @@ def cmd_find_unmanaged_repos(config):
                 'localname': self.localname,
                 'path': self.path,
                 'uri': vcsc.get_url(),
+                'version': vcsc.get_current_version_label(),
                 'properties': self.element.get_properties()}
 
     path = config.get_base_path()
