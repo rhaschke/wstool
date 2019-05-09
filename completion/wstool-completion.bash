@@ -41,7 +41,7 @@ fi
 
 # put here to be extendable
 if [ -z "$WSTOOL_BASE_COMMANDS" ]; then
-  _WSTOOL_BASE_COMMANDS="help init set merge info remove diff status update export --version"
+  _WSTOOL_BASE_COMMANDS="help init set merge info scrape remove diff status update export --version"
 fi
 
 # Based originally on the bzr/svn bash completition scripts.
@@ -115,6 +115,9 @@ _wstool_complete()
     ;;
   info)
     cmdOpts="-t --target-workspace --data-only --no-pkg-path --pkg-path-only --only --yaml -u --untracked --fetch -s --short --root -m --managed-only"
+    ;;
+  scrape)
+    cmdOpts="-y --confirm -t --target-workspace -v --versioned"
     ;;
   *)
     ;;
