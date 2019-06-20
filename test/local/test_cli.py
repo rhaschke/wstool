@@ -625,7 +625,7 @@ class GetStatusDiffInfoCmdTest(unittest.TestCase):
                     'localname': 'localname',
                     'specversion': 'specversion',
                     'actualversion': 'actualversion'}]
-        self.assertEqual(["localname", "scm", "uri"], _nth_line_split(-1, wstool.cli_common.get_info_table(basepath, entries, unmanaged=True)))
+        self.assertEqual(["localname", "scm", "uri", "version"], _nth_line_split(-1, wstool.cli_common.get_info_table(basepath, entries, unmanaged=True)))
 
     def test_info_list(self):
         basepath = '/foo/path'
